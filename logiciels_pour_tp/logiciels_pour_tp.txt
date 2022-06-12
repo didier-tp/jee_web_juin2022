@@ -1,0 +1,22 @@
+indispensable:
+=============
+- au moins un jdk (8 minimum ou 11 ou 17)
+
+- au moins un ide java en version  jee+maven (ex: eclipse_jee fin 2021 ou 2022)
+https://www.eclipse.org/downloads/packages/release/2022-03/r/eclipse-ide-enterprise-java-and-web-developers
+
+- au moins un serveur tomcat 
+https://tomcat.apache.org/download-90.cgi
+
+eventuellement:
+===============
+- mariaDB ou mysql
+- git
+- jboss_wildfly en version web profile (servlet)
+https://www.wildfly.org/downloads/
+
+
+
+=======================
+url (tp , solutions, ...):
+https://github.com/didier-tp/jee_web_juin2022
