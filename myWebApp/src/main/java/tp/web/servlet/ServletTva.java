@@ -1,6 +1,8 @@
 package tp.web.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,8 +28,20 @@ public class ServletTva extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+        String sHt = request.getParameter("ht"); // <input name="ht" />
+        double ht = Double.parseDouble(sHt);
+        String sTauxTva = request.getParameter("taux_tva");
+        double tauxTva = Double.parseDouble(sTauxTva);
+        
+        double tva = ht * tauxTva / 100;
+        double ttc = tva + ht;
+        
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        out.println("<html><body>");
+        out.println("tva="+tva);
+        out.println("ttc="+ttc);
+        out.println("</body></html>");
 	}
 
 	/**
