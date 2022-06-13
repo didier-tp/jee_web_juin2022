@@ -1,0 +1,11 @@
+<Context>
+
+ <!-- ici ou dans server.xml de TOMCAT/conf ou de eclipse/Servers/... ou ...  
+      si jboss plutot que tomcat alors standalone.xml et autre syntaxe xml -->
+ <Resource name="jdbc/myDB" auth="Container"
+						type="javax.sql.DataSource"
+						username="root"
+						password="root"
+						driverClassName="com.mysql.jdbc.Driver"
+						url="jdbc:mysql://localhost/myDB?serverTimezone=UTC"/>
+</Context>						
