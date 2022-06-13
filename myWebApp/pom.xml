@@ -11,6 +11,7 @@
           est devenu facultatif --> 
       <failOnMissingWebXml>false</failOnMissingWebXml>
       <maven.compiler.release>8</maven.compiler.release>
+      <!-- ou bien 11 ou 17 -->
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
        <!-- et windows/preferences/general/workspace/UTF8 --> 
   </properties>
