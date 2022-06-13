@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>tp</groupId>
+  <artifactId>myWebApp</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+  
+  <properties>
+     <!-- pour clairement indiquer que WEB-INF/web.xml
+          est devenu facultatif --> 
+      <failOnMissingWebXml>false</failOnMissingWebXml>
+      <maven.compiler.release>8</maven.compiler.release>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+       <!-- et windows/preferences/general/workspace/UTF8 --> 
+  </properties>
+  
+  <dependencies>
+  
+  <dependency>
+    <groupId>javax</groupId>
+    <artifactId>javaee-api</artifactId>
+    <!-- jee-api = servlet-api + ... --> 
+    <version>8.0</version>
+    <scope>provided</scope>
+  </dependency>
+  
+  </dependencies>
+  
+  <build>
+     <plugins>
+	     <plugin>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-compiler-plugin</artifactId>
+		    <version>3.8.0</version>
+		</plugin>
+     </plugins>
+  </build>
+  
+  
+</project>
