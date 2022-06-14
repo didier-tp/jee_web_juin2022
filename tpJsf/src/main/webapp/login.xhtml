@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="templates/common.xhtml">
+    <ui:define name="title">login</ui:define>
+	<ui:define name="header">login / connexion</ui:define>
+	<ui:define name="content">
+	   <h:messages  globalOnly="true"  class="error" /> <!-- affiche d'eventuels messages d'erreur -->
+     <h:form  id="loginForm">
+       username: <h:inputText id="username" label="username"
+                     value="#{loginBean.username}"
+                     required="true" >
+                    <f:validateLength minimum="4"/>
+                 </h:inputText> 
+                 <h:message for="username" errorClass="error" />
+                 <br/>
+       password: <h:inputSecret value="#{loginBean.password}" /> <br/>
+       <h:commandButton value="connexion/login"
+           action="#{loginBean.connexion}" />
+    </h:form>
+	</ui:define>
+</ui:composition>
+</html>

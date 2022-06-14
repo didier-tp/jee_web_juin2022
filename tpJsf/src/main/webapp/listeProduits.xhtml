@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" >
+
+<ui:composition template="templates/common.xhtml">
+    <ui:define name="title">listeProduits</ui:define>
+	<ui:define name="header">liste des produits</ui:define>
+	<ui:define name="content">
+		
+	<h:form>
+	
+	    <h:selectBooleanCheckbox value="#{produitBean.avecDetails}"
+	       valueChangeListener="#{produitBean.onDetailsChange}"  >avecDetails
+	           <f:ajax event="click" execute="@this" render="idTableau"/> 
+	           <!-- render="idDelaPartieDeLaPage_a_rafraichir" -->
+	       </h:selectBooleanCheckbox>
+	      <br/> 
+	    date : <p:calendar value="#{produitBean.date}" /> <br/> 
+	    categorie:
+		<h:selectOneMenu value="#{produitBean.categorie}"
+		    			 valueChangeListener="#{produitBean.onCategorieChange}" >
+		   <f:ajax event="change" render="idTableau"/> 
+		   <f:selectItems value="#{produitBean.listeCategorie}"
+                     var="c" itemValue="#{c.idCat}" itemLabel="#{c.idCat} - #{c.label}"/>
+		   <!--  
+			<f:selectItem itemValue="1" itemLabel="bureau"/>
+			<f:selectItem itemValue="2" itemLabel="film"/>
+			<f:selectItem itemValue="3" itemLabel="livre"/>
+			-->
+		</h:selectOneMenu>
+		<!--  plus besoin de commandButton value="filtrer selon categorie"
+		              ni de l'action produitBean.filtrerSelonCategorie 
+		 -->
+		
+	
+	
+	         <h:dataTable id="idTableau" value="#{produitBean.listeProduits}"
+	                      var="p" border="1">
+	              <h:column>
+	                  <f:facet name="header"><f:verbatim>numero</f:verbatim></f:facet>
+	                  <h:commandLink value="#{p.num}" 
+	                                 action="#{produitBean.detaillerProduit}">
+	                       <f:setPropertyActionListener value="#{p}" 
+	                                     target="#{produitBean.produit}" /> 
+	                        <!-- le produit selectionne #{p} de la n eme ligne
+	                             selectionné du tableau sera automatiquement
+	                             recopié dans la variable produit de produitBean
+	                             juste avant que  detaillerProduit() soit appelé -->             
+	                   </h:commandLink>
+	              </h:column>
+	               <h:column>
+	               <f:facet name="header"><f:verbatim>label</f:verbatim></f:facet>
+	                  <h:outputText value="#{p.label}" />
+	              </h:column>
+	               <h:column>
+	               <f:facet name="header"><f:verbatim>prix</f:verbatim></f:facet>
+	                  <h:outputText value="#{p.prix}" />
+	              </h:column>
+	              <h:column rendered="#{produitBean.avecDetails}">
+	               <f:facet name="header"><f:verbatim>description</f:verbatim></f:facet>
+	                  <h:outputText value="#{p.description}" />
+	              </h:column>
+	         </h:dataTable>
+	   </h:form>
+	</ui:define>
+</ui:composition>
+</html>

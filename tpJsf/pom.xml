@@ -1,0 +1,78 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>tp</groupId>
+  <artifactId>tpJsf</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <properties>
+     <maven.compiler.source>1.8</maven.compiler.source>
+     <maven.compiler.target>1.8</maven.compiler.target>
+     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     <myfaces.version>2.1.5</myfaces.version>
+  </properties>
+  
+  <dependencies>
+  
+	<dependency>
+   		<groupId>javax.servlet</groupId>
+    	<artifactId>javax.servlet-api</artifactId>
+    	<version>3.0.1</version>
+    	<scope>provided</scope> <!-- deja fourni par tomcat -->
+	</dependency>
+	
+	
+     <dependency>
+   		<groupId>javax.servlet</groupId>
+    	<artifactId>jstl</artifactId>
+    	<version>1.2</version>
+    	<scope>compile</scope> 
+	</dependency>
+  
+	<dependency>
+    	<groupId>org.apache.myfaces.core</groupId>
+    	<artifactId>myfaces-api</artifactId>
+    	<version>${myfaces.version}</version>
+    	<!-- scope=compile par defaut ,
+    	     sera placé dans WEB-INF/lib et 
+    	     deployé dans tomcat avec l'application  -->
+	</dependency>
+	
+	<dependency>
+    	<groupId>org.apache.myfaces.core</groupId>
+    	<artifactId>myfaces-impl</artifactId>
+    	<version>${myfaces.version}</version>
+	</dependency>
+	
+	<dependency>
+      <groupId>org.primefaces</groupId>
+      <artifactId>primefaces</artifactId>
+      <version>6.2</version>
+    </dependency>
+	
+	
+  </dependencies>
+  <build>
+      <finalName>${project.artifactId}</finalName> <!-- tpJsf.war -->
+      <plugins>
+     
+    <!-- plugins pour version récentes de java --> 
+	 <!--   <plugin>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-compiler-plugin</artifactId>
+		    <version>3.8.0</version>
+		</plugin>
+	 -->	
+		
+	<!-- plugins pour version récentes de java et/ou eclipse --> 
+	<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.2</version>
+      </plugin>
+      
+		
+     </plugins>
+  </build>
+  
+  
+</project>

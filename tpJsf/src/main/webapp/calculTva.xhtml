@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="templates/common.xhtml">
+    <ui:define name="title">calcul tva</ui:define>
+	<ui:define name="header">CalculTva</ui:define>
+	<ui:define name="content">
+	        <h:messages  globalOnly="true" errorClass="error"/> <!-- affiche d'eventuels messages d'erreur -->
+		    <h:form>
+		      <h:panelGrid columns="3">
+		      
+		       <h:outputLabel>ht:</h:outputLabel> 
+		       <h:inputText id="idHt" label="ht" value="#{calculTva.ht}" />
+		       <h:message for="idHt" errorClass="error" /> 
+		       
+		       <h:outputLabel>taux:</h:outputLabel>
+		       <h:inputText id="taux" label="taux" value="#{calculTva.taux}" >
+		                <f:validateDoubleRange minimum="0" maximum="33"/>
+		       </h:inputText> 
+		       <h:message for="taux" errorClass="error" />
+		        
+		       <h:outputLabel></h:outputLabel>
+		       <h:commandButton value="calculer tva"
+		           action="#{calculTva.calculerTvaEtTtc}" />
+		        <h:outputLabel></h:outputLabel> 
+		          
+		      </h:panelGrid>
+		    </h:form>
+		    tva = <h:outputText value="#{calculTva.tva}" >
+		             <f:convertNumber maxFractionDigits="2" />
+		          </h:outputText>
+		           <br/>
+		    ttc = <h:outputText value="#{calculTva.ttc}" /> <br/>
+	</ui:define>
+</ui:composition>
+</html>

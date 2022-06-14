@@ -6,10 +6,12 @@
 </head>
 <body>
      <h2>calcul_tva_via_servlet</h2>
-    <form  action="ServletTva" method="GET">
+    <form  action="ServletTva" method="POST">
         <label>ht:</label><input name="ht" /><br/>
         <label>taux_tva:</label><input name="taux_tva" />%<br/>
         <input type="submit" value="calculer tva"/> 
     </form>
+    
+    <a href="./ServletTva?ht=500&taux_tva=15">tva pour ht=500 et taux=15%</a>
 </body>
 </html>
