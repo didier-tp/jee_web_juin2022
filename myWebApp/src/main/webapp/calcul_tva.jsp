@@ -7,6 +7,8 @@
 <title>calcul_tva</title>
 </head>
 <body>
+    <%@ include file="entete.jsp" %>
+
     <%
     String sHt = request.getParameter("ht"); //null pour premier appel , pas null plus tard
     double ht = (sHt!=null)?Double.parseDouble(sHt):0;
