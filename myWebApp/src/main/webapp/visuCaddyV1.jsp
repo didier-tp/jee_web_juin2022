@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.List" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,16 +8,21 @@
 <title>visuCaddy</title>
 </head>
 <body>
+   <%
+   List<String> caddy = (List<String>) session.getAttribute("caddy");
+   %>
    <h1>visuCaddy</h1>
    
-   <c:if test="${caddy != null}"> 
-	   <table border="2">
-	      <c:forEach items="${caddy}" var="element">
-	    		 <tr><td>${element}</td></tr> 
-	     </c:forEach>
-	   </table>
-   </c:if>
+  <%if(caddy!=null)
+     { %> 
+   <table border="1">
+      <%for(String element : caddy){ %>
+     <tr><td><%=element%></td></tr> 
+     <%}%>
+   </table>
+   <%}%>
+   
    <p><a href="index.html">retour index</a></p>
-   <p>Num de session (HttpSession java) : <%=session.getId() %></p>
+   <p>num de session (HttpSession java) : <%=session.getId() %></p>
 </body>
 </html>
