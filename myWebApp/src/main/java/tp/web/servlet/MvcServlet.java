@@ -26,8 +26,17 @@ public class MvcServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String tache = request.getParameter("tache"); //tache vaudra "calculTva" ou "recherherPersonne"
+	    switch(tache) {
+	    case "calculTva":
+	    	doCalculTva(request,response);
+	    	break;
+	    //...	
+	    }
+	}
+	
+	protected void doCalculTva(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
 	}
 
 	/**
