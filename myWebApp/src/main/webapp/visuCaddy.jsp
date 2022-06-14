@@ -21,5 +21,8 @@
      <%}%>
    </table>
    <%}%>
+   
+   <p><a href="index.html">retour index</a></p>
+   <p>num de session (HttpSession java) : <%=session.getId() %></p>
 </body>
 </html>

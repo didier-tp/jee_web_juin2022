@@ -29,5 +29,6 @@
       <input type="submit" value="ajouter au caddy"/> 
     </form>
     <%=message%>
+    <p><a href="index.html">retour index</a></p>
 </body>
 </html>
