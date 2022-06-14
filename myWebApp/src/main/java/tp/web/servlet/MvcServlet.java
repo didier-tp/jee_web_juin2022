@@ -1,11 +1,15 @@
 package tp.web.servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import tp.web.model.CalculTva;
 
 /**
  * Servlet implementation class MvcServlet
@@ -36,7 +40,12 @@ public class MvcServlet extends HttpServlet {
 	}
 	
 	protected void doCalculTva(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+	      CalculTva calculTva = new CalculTva();
+	      calculTva.setHt(request.getParameter("ht"));
+	      calculTva.setTauxTva(request.getParameter("taux_tva"));
+	      calculTva.calculer();
+	      RequestDispatcher rd = this.getServletContext().getRequestDispatcher("resCalculTva.jsp");
+	      rd.forward(request, response); //redirection vers page JSP (jouant le rôle de VUE dans MVC)
 	}
 
 	/**
