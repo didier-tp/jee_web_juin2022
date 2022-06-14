@@ -7,8 +7,11 @@
 <title>resCalculTva</title>
 </head>
 <body>
+    <%
+    tp.web.model.CalculTva calculTva = (tp.web.model.CalculTva) request.getAttribute("calculTva");
+    %>
     <h1>resCalculTva</h1>
-    tva=<b>${calculTva.tva}</b> <br/>
-    ttc=<b>${calculTva.ttc}</b>
+    tva=<%=calculTva.getTva() %> <br/>
+    ttc=<%=calculTva.getTtc() %>
 </body>
 </html>
