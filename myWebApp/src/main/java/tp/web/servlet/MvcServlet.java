@@ -43,8 +43,15 @@ public class MvcServlet extends HttpServlet {
 	      CalculTva calculTva = new CalculTva();
 	      calculTva.setHt(request.getParameter("ht"));
 	      calculTva.setTauxTva(request.getParameter("taux_tva"));
-	      calculTva.calculer();
-	      RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/resCalculTva.jsp");
+	      String pathJsp ; 
+	      try {
+			calculTva.calculer();
+			pathJsp = "/resCalculTva.jsp";//redirection vers page resultat quand ok
+		  } catch (RuntimeException e) {
+			pathJsp = "/saisirCalculTva.jsp";//redirection vers page erreur
+			                                 //ou bien page de meilleur saisie
+		  }
+	      RequestDispatcher rd = this.getServletContext().getRequestDispatcher(pathJsp);
 	      request.setAttribute("calculTva", calculTva);//on stocke dans l'objet request
 	                                                   //un accès à l'objet "calculTva"
 	      												//pour que la page jsp puisse y accéder

@@ -8,9 +8,21 @@ public class CalculTva {
 	private Double ttc;
 	private String message;//erreur ou pas
 	
-	public void calculer() {
-		double dHt = Double.parseDouble(ht);
-		double dTauxTva = Double.parseDouble(tauxTva);
+	public void calculer() throws RuntimeException{
+		double dHt = 0;
+		try {
+			dHt=Double.parseDouble(ht);
+		} catch (NumberFormatException e) {
+			this.message="ht doit etre numerique";
+			throw e;
+		}
+		double dTauxTva = 0;
+		try {
+			dTauxTva = Double.parseDouble(tauxTva);
+		} catch (NumberFormatException e) {
+			this.message="tauxTva doit etre numerique";
+			throw e;
+		}
 		this.tva = dHt * dTauxTva/100;
 		this.ttc = tva + dHt;
 	}

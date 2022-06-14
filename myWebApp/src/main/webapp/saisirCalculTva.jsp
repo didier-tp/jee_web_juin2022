@@ -10,9 +10,10 @@
      <h1>saisirCalculTva</h1>
      <form  action="MvcServlet" method="POST">
         <input type="hidden" name="tache" value="calculTva"/>
-        <label>ht:</label><input name="ht" /><br/>
-        <label>taux_tva:</label><input name="taux_tva" />%<br/>
+        <label>ht:</label><input name="ht" value="${calculTva.ht}" /><br/>
+        <label>taux_tva:</label><input name="taux_tva"  value="${calculTva.tauxTva}" />%<br/>
         <input type="submit" value="calculer tva"/> 
     </form>
+    <p>${calculTva.message}</p>
 </body>
 </html>
