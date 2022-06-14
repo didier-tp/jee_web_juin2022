@@ -9,6 +9,10 @@
 <body>
     <h1>resCalculTva</h1>
     tva=<b>${calculTva.tva}</b> <br/>
-    ttc=<b>${calculTva.ttc}</b>
+    ttc=<b>${calculTva.ttc}</b> <br/>
+    
+  
+     ttc en scope request =<b>${requestScope.calculTva.ttc}</b> <br/>
+     ttc en scope session =<b>${sessionScope.calculTva.ttc}</b> <br/>
 </body>
 </html>

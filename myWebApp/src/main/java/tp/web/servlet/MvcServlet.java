@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import tp.web.model.CalculTva;
 
@@ -52,6 +53,8 @@ public class MvcServlet extends HttpServlet {
 			                                 //ou bien page de meilleur saisie
 		  }
 	      RequestDispatcher rd = this.getServletContext().getRequestDispatcher(pathJsp);
+	      //HttpSession session = request.getSession();
+	      //session.setAttribute("calculTva", calculTva);
 	      request.setAttribute("calculTva", calculTva);//on stocke dans l'objet request
 	                                                   //un accès à l'objet "calculTva"
 	      												//pour que la page jsp puisse y accéder
