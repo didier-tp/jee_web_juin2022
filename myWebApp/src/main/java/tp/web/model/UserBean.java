@@ -39,7 +39,7 @@ public class UserBean {
 			
 			// … utilisation classique d’une connexion JDBC …
 			Statement st = cn.createStatement();
-			ResultSet rs = st.executeQuery("SELECT * FROM User WHERE ID="+this.id);
+			ResultSet rs = st.executeQuery("SELECT * FROM `User` WHERE ID="+this.id);
 			if(rs.next()) {
 				this.user = new User(rs.getInt("ID"),
 						             rs.getString("username"),
