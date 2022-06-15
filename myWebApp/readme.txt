@@ -1,4 +1,12 @@
 
+
+
+
+http://localhost:8080/myWebApp
+
+===============
+
+
 CREATE TABLE `User`(
 `ID` INTEGER PRIMARY KEY AUTO_INCREMENT,
 `username` VARCHAR(64),
