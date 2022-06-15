@@ -44,14 +44,7 @@
               factory="org.apache.catalina.users.MemoryUserDatabaseFactory"
               pathname="conf/tomcat-users.xml" />
 
-    <!-- cette configuration de fonctionnera 
-	qu'avec une copie de h2...jar dans tomcat/lib -->
-	<Resource name="jdbc/myDB" auth="Container"
-	type="javax.sql.DataSource"
-	username="sa"
-	password=""
-	driverClassName="org.h2.Driver"
-	url="jdbc:h2:~/test"/>		  
+    		  
 			  
 			  
   </GlobalNamingResources>
@@ -161,6 +154,8 @@
 
       <Host name="localhost"  appBase="webapps"
             unpackWARs="true" autoDeploy="true">
+			
+
 
         <!-- SingleSignOn valve, share authentication between web applications
              Documentation at: /docs/config/valve.html -->
