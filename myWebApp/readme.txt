@@ -8,6 +8,7 @@ CREATE TABLE `User`(
 
 INSERT INTO `User`(`id`,username,password,email) VALUES (1,'titi','pwdtiti', 'titi@icioula.fr');
 INSERT INTO `User`(`id`,username,password,email) VALUES (2,'toto','pwdtoto', 'toto@icioula.fr');
+INSERT INTO `User`(username,password,email) VALUES ('tata','pwdtata', 'tata@icioula.fr');
 
 
 select * from `User`;
