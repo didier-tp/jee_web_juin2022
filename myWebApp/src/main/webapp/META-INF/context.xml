@@ -1,0 +1,14 @@
+<Context>
+
+ <!-- ici ou dans server.xml de TOMCAT/conf ou de eclipse/Servers/... ou ...  
+      si jboss plutot que tomcat alors standalone.xml et autre syntaxe xml -->
+      
+ <!-- cette configuration de fonctionnera 
+	qu'avec une copie de h2...jar dans tomcat/lib -->
+	<Resource name="jdbc/myDB" auth="Container"
+	type="javax.sql.DataSource"
+	username="sa"
+	password=""
+	driverClassName="org.h2.Driver"
+	url="jdbc:h2:~/test"/>
+</Context>						
