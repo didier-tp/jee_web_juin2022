@@ -11,3 +11,10 @@ INSERT INTO `User`(`id`,username,password,email) VALUES (2,'toto','pwdtoto', 'to
 
 
 select * from `User`;
+
+
+===============
+org.h2.Driver
+jdbc:h2:~/test
+username="sa"
+password=""
