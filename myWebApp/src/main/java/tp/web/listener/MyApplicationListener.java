@@ -55,3 +55,15 @@ public class MyApplicationListener implements ServletContextListener, ServletReq
     }
 	
 }
+
+/*
+dans tomcat/conf/tomcat-users.xml
+
+<role rolename="manager-gui"/>
+  <role rolename="tomcat"/>
+  <role rolename="role1"/>
+  <user username="tomcat" password="tomcat" roles="tomcat,manager-gui"/>
+  
+on peut accéder à une console d'admin de tomcat
+localhost:8080/manager   (username="tomcat" password="tomcat")
+*/
