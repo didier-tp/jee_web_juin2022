@@ -14,7 +14,7 @@ import tp.entity.User;
 public class UserBean {
 	private Integer id; //personne de l'utilisateur recherché
 	private User user; //utilisateur trouvé en base
-	//...
+	private String message; //erreur ou pas
 	
 	private DataSource dataSource;
 	
@@ -51,6 +51,7 @@ public class UserBean {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			this.message ="echec rechercherUserById " + e.getMessage();
 		} finally {
 			try {
 				cn.close(); // fermeture (virtuelle) de la connexion
@@ -60,4 +61,31 @@ public class UserBean {
 			}
 		}
 	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	
+	
+	
 }
