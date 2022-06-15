@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import tp.web.model.CalculTva;
+import tp.web.model.UserBean;
 
 /**
  * Servlet implementation class MvcServlet
@@ -36,8 +37,30 @@ public class MvcServlet extends HttpServlet {
 	    case "calculTva":
 	    	doCalculTva(request,response);
 	    	break;
+	    case "rechercheUser":
+	    	doRechercheUser(request,response);
+	    	break;
 	    //...	
 	    }
+	}
+	
+	protected void doRechercheUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	      UserBean userBean = new UserBean();
+	      userBean.setId(Integer.parseInt (request.getParameter("id")));
+	      String pathJsp ; 
+	      try {
+	    	 userBean.rechercherUserById();
+			pathJsp = "/resUser.jsp";//redirection vers page resultat quand ok
+		  } catch (RuntimeException e) {
+			pathJsp = "/saisirRechercheUser.jsp";//redirection vers page erreur
+			                                 //ou bien page de meilleur saisie
+		  }
+	      RequestDispatcher rd = this.getServletContext().getRequestDispatcher(pathJsp);
+	     
+	      request.setAttribute("userBean", userBean);//on stocke dans l'objet request
+	                                                   //un accès à l'objet "userBean"
+	      												//pour que la page jsp puisse y accéder
+	      rd.forward(request, response); //redirection vers page JSP (jouant le rôle de VUE dans MVC)
 	}
 	
 	protected void doCalculTva(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
