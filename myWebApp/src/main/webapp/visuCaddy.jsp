@@ -9,6 +9,7 @@
 <title>visuCaddy</title>
 </head>
 <body>
+     <%@ include file="entete.jsp" %>
    <h1>visuCaddy</h1>
    
    <c:if test="${caddy != null}"> 

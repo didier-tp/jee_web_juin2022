@@ -7,6 +7,7 @@
 <title>saisirRechercheUser</title>
 </head>
 <body>
+      <%@ include file="entete.jsp" %>
      <h1>saisirRechercheUser</h1>
      <form  action="MvcServlet" method="POST">
         <input type="hidden" name="tache" value="rechercheUser"/>

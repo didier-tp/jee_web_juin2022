@@ -7,6 +7,7 @@
 <title>saisirCalculTva</title>
 </head>
 <body>
+       <%@ include file="entete.jsp" %>
      <h1>saisirCalculTva</h1>
      <form  action="MvcServlet" method="POST">
         <input type="hidden" name="tache" value="calculTva"/>

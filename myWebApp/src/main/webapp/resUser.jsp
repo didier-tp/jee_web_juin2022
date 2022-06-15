@@ -7,6 +7,7 @@
 <title>resUser</title>
 </head>
 <body>
+  <%@ include file="entete.jsp" %>
     <h1>resUser</h1>
     id=<b>${userBean.user.id}</b> <br/>
     username=<b>${userBean.user.username}</b> <br/>

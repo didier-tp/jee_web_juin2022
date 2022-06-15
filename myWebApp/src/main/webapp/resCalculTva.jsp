@@ -7,6 +7,7 @@
 <title>resCalculTva</title>
 </head>
 <body>
+      <%@ include file="entete.jsp" %>
     <h1>resCalculTva</h1>
     tva=<b>${calculTva.tva}</b> <br/>
     ttc=<b>${calculTva.ttc}</b> <br/>

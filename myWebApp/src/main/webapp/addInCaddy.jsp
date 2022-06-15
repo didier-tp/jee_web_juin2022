@@ -8,6 +8,7 @@
 <title>addInCaddy</title>
 </head>
 <body>
+     <%@ include file="entete.jsp" %>
    <%
    String produit = request.getParameter("produit");
    String message="";

@@ -40,8 +40,18 @@ public class MvcServlet extends HttpServlet {
 	    case "rechercheUser":
 	    	doRechercheUser(request,response);
 	    	break;
+	    case "logout":
+	    	doLogout(request,response);
+	    	break;
 	    //...	
 	    }
+	}
+	
+	protected void doLogout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	      //request.getSession().invalidate();//before Servlet 3.0
+		  request.logout();//since Servlet 3.0
+	      RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/index.html");
+	      rd.forward(request, response); //redirection vers page JSP (jouant le rôle de VUE dans MVC)
 	}
 	
 	protected void doRechercheUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
