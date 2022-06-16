@@ -9,8 +9,8 @@ import javax.persistence.PersistenceContext;
 
 import tp.entity.User;
 
-@Local
-@Stateless
+//@Local
+//@Stateless
 public class DaoUserJpa implements DaoUser {
 	
 	@PersistenceContext(unitName = "JeeAppCoreEjb")
