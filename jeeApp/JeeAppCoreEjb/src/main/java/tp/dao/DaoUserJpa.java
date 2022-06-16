@@ -13,7 +13,7 @@ import tp.entity.User;
 //@Stateless
 public class DaoUserJpa implements DaoUser {
 	
-	@PersistenceContext(unitName = "JeeAppCoreEjb")
+	//@PersistenceContext(unitName = "JeeAppCoreEjb")
 	private EntityManager entityManager;
 
 	@Override

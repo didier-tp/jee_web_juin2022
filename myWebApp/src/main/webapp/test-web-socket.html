@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Apache Tomcat WebSocket Examples: Chat</title>
+<style type="text/css">
+		input#chat {
+            width: 410px
+        }
+
+        #console-container {
+            width: 400px;
+        }
+
+        #console {
+            border: 1px solid #CCCCCC;
+            border-right-color: #999999;
+            border-bottom-color: #999999;
+            height: 170px;
+            overflow-y: scroll;
+            padding: 5px;
+            width: 100%;
+        }
+
+        #console p {
+            padding: 0;
+            margin: 0;
+        }
+</style>
+<script src="js/chat.js"></script>
+</head>
+<body>
+	<p>
+	<input type="text" placeholder="type and press enter to chat"
+			id="chat" />
+	</p>
+	<div id="console-container">
+		<div id="console" >	</div>
+	</div>
+</body>
+</html>
