@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+	<persistence-unit name="JeeAppCoreEjb">
+	
+	    <!-- la valeur de jta-data-source (ici jdbc/myDB) correspond
+	         au nom JNDI d'un pool de connexion (resource de type DataSource)
+	         à préparer au sein du serveur Jboss 
+	       
+	       quelques fois ça se fait en modifiant le fichier standalone/configuration/standalone.xml
+	       d'autres fois ça se fait via une console d'admin du serveur
+	          -->
+	    <jta-data-source>jdbc/myDB</jta-data-source>
+	    
+	    
+	</persistence-unit>
+</persistence>
