@@ -1,5 +1,6 @@
 package tp.soap;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Local;
@@ -8,6 +9,7 @@ import javax.inject.Inject;
 import javax.jws.WebService;
 
 import tp.dao.DaoUser;
+import tp.dto.UserDto;
 import tp.entity.User;
 
 @Stateless
@@ -19,16 +21,26 @@ public class UserServiceImpl implements UserService {
 	private DaoUser daoUser;
 
 	@Override
-	public List<User> fetchUsers() {
-		List<User> usersEntities =  daoUser.getAllUser(); 
-		return usersEntities;//tp rapide 
+	public List<UserDto> fetchUsers() {
+		List<User> usersEntities =  daoUser.getAllUser();
+		List<UserDto> listeDto = new ArrayList<UserDto>();
+		for(User userEntity : usersEntities) {
+			UserDto uDto = new UserDto(userEntity.getId() , 
+			           userEntity.getUsername() ,
+			           userEntity.getPassword(),
+			           userEntity.getEmail());
+			listeDto.add(uDto);
+		}
+		return listeDto;
 	}
 
 	@Override
-	public User userById(Integer userId) {
+	public UserDto userById(Integer userId) {
 		User userEntity = daoUser.getUserById(userId);
-		return userEntity; //tp rapide
-		//return new UserDto(userEntity.getId() , userEntity.getUsername() , ...);
+		return new UserDto(userEntity.getId() , 
+				           userEntity.getUsername() ,
+				           userEntity.getPassword(),
+				           userEntity.getEmail());
 	}
 
 }

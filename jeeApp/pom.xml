@@ -22,5 +22,6 @@
   	<module>jeeAppWeb</module>
   	<module>JeeAppCoreItf</module>
   	<module>JeeAppCoreEjb</module>
+  	<module>soapClient</module>
   </modules>
 </project>

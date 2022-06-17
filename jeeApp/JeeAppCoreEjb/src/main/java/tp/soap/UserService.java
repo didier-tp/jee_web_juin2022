@@ -5,10 +5,10 @@ import java.util.List;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
-import tp.entity.User;
+import tp.dto.UserDto;
 
 @WebService
 public interface UserService {
-    List<User> fetchUsers(); //ou mieux encore  List<UserDto>
-    User userById(@WebParam(name="userId")Integer userId);
+    List<UserDto> fetchUsers(); 
+    UserDto userById(@WebParam(name="userId")Integer userId);
 }
