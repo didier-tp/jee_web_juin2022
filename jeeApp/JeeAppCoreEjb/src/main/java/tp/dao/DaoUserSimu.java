@@ -15,10 +15,12 @@ import tp.entity.User;
 public class DaoUserSimu implements DaoUser {
 	
 	private Map<Integer,User> mapUsers = new HashMap<>();
+	private int maxId ;
 	
 	public DaoUserSimu(){
 	   mapUsers.put(1,new User(1,"toto","pwdtoto","toto@xyz.fr"));
 	   mapUsers.put(2,new User(2,"titi","pwdtiti","titi@xyz.fr"));
+	   maxId=2;
 	}
 
 	@Override
@@ -29,6 +31,13 @@ public class DaoUserSimu implements DaoUser {
 	@Override
 	public List<User> getAllUser() {
 		return new ArrayList<User>(mapUsers.values());
+	}
+
+	@Override
+	public User saveUser(User u) {
+		u.setId(++maxId); //simuler auto incrementation
+		mapUsers.put(u.getId(),u);
+		return u;//on retourne le user avec id connu/auto_incrémenté
 	}
 
 }

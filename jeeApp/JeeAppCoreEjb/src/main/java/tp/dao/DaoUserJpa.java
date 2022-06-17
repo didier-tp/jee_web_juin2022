@@ -27,4 +27,10 @@ public class DaoUserJpa implements DaoUser {
 				            .getResultList();
 	}
 
+	@Override
+	public User saveUser(User u) {
+		entityManager.persist(u);
+		return u;
+	}
+
 }

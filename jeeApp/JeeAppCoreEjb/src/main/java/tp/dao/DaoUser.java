@@ -12,5 +12,5 @@ import tp.entity.User;
 public interface DaoUser {
      User getUserById(Integer id);
      List<User> getAllUser();
-     //...
+     User saveUser(User u);
 }
